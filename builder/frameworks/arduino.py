@@ -31,8 +31,8 @@ from SCons.Script import DefaultEnvironment
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoteensy")
-FRAMEWORK_VERSION = platform.get_package_version("framework-arduinoteensy")
+FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoteensy-ds4")
+FRAMEWORK_VERSION = platform.get_package_version("framework-arduinoteensy-ds4")
 BUILD_CORE = env.BoardConfig().get("build.core")
 
 assert isdir(FRAMEWORK_DIR)
@@ -60,6 +60,8 @@ BUILTIN_USB_FLAGS = (
     "USB_FLIGHTSIM",
     "USB_FLIGHTSIM_JOYSTICK",
     "USB_EVERYTHING",
+    "USB_DS4",
+    "USB_DS4STUB",
     "USB_DISABLED",
 )
 if not set(env.get("CPPDEFINES", [])) & set(BUILTIN_USB_FLAGS):
